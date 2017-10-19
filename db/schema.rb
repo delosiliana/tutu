@@ -34,7 +34,11 @@ ActiveRecord::Schema.define(version: 20171019011338) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "start_station_id"
+    t.integer "finish_station_id"
     t.integer "train_id"
+    t.index ["finish_station_id"], name: "index_tickets_on_finish_station_id"
+    t.index ["start_station_id"], name: "index_tickets_on_start_station_id"
     t.index ["train_id"], name: "index_tickets_on_train_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
