@@ -22,33 +22,26 @@ class RailwayStationsController < ApplicationController
   # POST /railway_stations
   def create
     @railway_station = RailwayStation.new(railway_station_params)
-
-    respond_to do |format|
-      if @railway_station.save
-        format.html { redirect_to @railway_station, notice: 'Railway station was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @railway_station.save
+      redirect_to @railway_station, notice: 'Станция создана.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /railway_stations/1
   def update
-    respond_to do |format|
-      if @railway_station.update(railway_station_params)
-        format.html { redirect_to @railway_station, notice: 'Railway station was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @railway_station.update(railway_station_params)
+      redirect_to @railway_station, notice: 'Станция обновлена.'
+    else
+      render :edit
     end
   end
 
   # DELETE /railway_stations/1
   def destroy
     @railway_station.destroy
-    respond_to do |format|
-      format.html { redirect_to railway_stations_url, notice: 'Railway station was successfully destroyed.' }
-    end
+    redirect_to railway_stations_url, notice: 'Станция удалена.'
   end
 
   private
