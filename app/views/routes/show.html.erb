@@ -7,27 +7,27 @@
 
 <p>
   <strong>Поезда на маршруте:</strong>
-  <% if @route.trains.empty? %>
-    Поездов на маршруте нет
-  <% else %>
+  <% if @route.trains.any? %>
     <ul>
       <% @route.trains.each do |train| %>
         <li><%= train.number %></li>
       <% end %>
     </ul>
+  <% else %>
+    Поездов на маршруте нет
   <% end %>
 </p>
 
 <p>
   <strong>Станции на маршруте:</strong>
-  <% if @route.railway_stations.empty? %>
-    Станций на маршруте нет
-  <% else %>
+  <% if @route.railway_stations.any? %>
     <ul>
       <% @route.railway_stations.each do |station| %>
         <li><%= station.name %></li>
       <% end %>
     </ul>
+  <% else %>
+    Cтанций на маршруте нет
   <% end %>
 </p>
 
