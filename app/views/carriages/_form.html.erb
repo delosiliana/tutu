@@ -1,0 +1,32 @@
+<%= form_for(@carriage) do |form| %>
+  <%= render 'common/errors', resource: @carriage %>
+  
+  <div class="field">
+    <%= form.label :route, "Поезд" %>
+    <%= form.collection_select :train_id, Train.all, :id, :number, prompt: "Выберите поезд"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :number, 'Номер вагона' %>
+    <%= form.number_field :number %>
+  </div>
+
+    <div class="field">
+    <%= form.label :carriage_type, 'Тип вагона' %>
+    <%= form.select :carriage_type, ['Купе', 'Плацкарт'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :upper_seats, 'Количество верхних мест' %>
+    <%= form.number_field :upper_seats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lower_seats, 'Количество нижних мест' %>
+    <%= form.number_field :lower_seats %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
