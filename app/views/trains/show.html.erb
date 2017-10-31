@@ -13,6 +13,23 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Количество вагонов всего:</strong>
+  <% if @train.carriages.any? %>
+    <%= @train.carriages.count %>
+      <p>Купейных = <%= @train.carriages_count('Купе') %></p>
+      <ul><strong>Количество мест:</strong>
+        <li>Нижних = <%= @train.lower_seats_count('Купе') %>
+        <li>Верхних = <%= @train.upper_seats_count('Купе') %></ul>
+      <p>Плацкартных = <%= @train.carriages_count('Плацкарт') %></p> 
+      <ul><strong>Количество мест:</strong>
+        <li>Нижних = <%= @train.lower_seats_count('Плацкарт') %></li>
+        <li>Верхних = <%= @train.upper_seats_count('Плацкарт') %></li></ul>
+  <% else %>
+    Вагонов у поезда нет
+  <% end %>
+</p>
+
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>
