@@ -4,7 +4,9 @@ class CreateCarriages < ActiveRecord::Migration[5.1]
       t.integer :number
       t.integer :upper_seats
       t.integer :lower_seats
-      t.string :carriage_type
+      t.integer :side_upper_seats
+      t.integer :side_lower_seats
+      t.string :type
       t.belongs_to :train
 
       t.timestamps
