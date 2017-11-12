@@ -1,4 +1,4 @@
-<%= form_for carriage do |form| %>
+<%= form_for carriage.becomes(Carriage) do |form| %>
   <%= render 'common/errors', resource: @carriage %>
   
   <div class="field">
@@ -7,13 +7,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :number, 'Номер вагона' %>
-    <%= form.number_field :number %>
-  </div>
-
-    <div class="field">
-    <%= form.label :carriage_type, 'Тип вагона' %>
-    <%= form.select :carriage_type, ['Купе', 'Плацкарт'] %>
+    <%= form.label :type, 'Тип вагона' %>
+    <%= form.select :type, [['Плацкарт', 'EconomyCarriage'], ['Купе', 'CoupeCarriage'], ['Св', 'LuxuruCarriage'], ['Сидячий', 'SedentaryCarriage']] %>
   </div>
 
   <div class="field">
@@ -24,6 +19,21 @@
   <div class="field">
     <%= form.label :lower_seats, 'Количество нижних мест' %>
     <%= form.number_field :lower_seats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :side_upper_seats, 'Количество верхних боковых мест' %>
+    <%= form.number_field :side_upper_seats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :side_lower_seats, 'Количество нижних боковых мест' %>
+    <%= form.number_field :side_lower_seats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sitting_seats, 'Количество сидячих мест' %>
+    <%= form.number_field :sitting_seats %>
   </div>
 
   <div class="actions">

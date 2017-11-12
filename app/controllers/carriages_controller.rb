@@ -15,7 +15,7 @@ class CarriagesController < ApplicationController
   def create
     @carriage = Carriage.new(carriage_params)
     if @carriage.save
-      redirect_to @carriage, notice: 'Вагон создан'
+      redirect_to carriages_path, notice: 'Вагон создан'
     else
       render :new
     end
