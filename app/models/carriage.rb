@@ -13,6 +13,9 @@ class Carriage < ApplicationRecord
   scope :coupe, -> { where(type: 'CoupeCarriage') }
   scope :luxuru, -> { where(type: 'LuxuruCarriage') }
 
+  scope :sort_up, -> { order(number: :asc) }
+  scope :sort_down, -> { order(number: :desc) }
+
   private
 
   def set_number

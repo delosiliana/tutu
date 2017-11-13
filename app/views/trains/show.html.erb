@@ -17,18 +17,34 @@
   <strong>Количество вагонов всего:</strong>
   <% if @train.carriages.any? %>
     <%= @train.carriages.count %>
-      <p>Купейных = <%= @train.carriages_count('Купе') %></p>
-      <ul><strong>Количество мест:</strong>
-        <li>Нижних = <%= @train.lower_seats_count('Купе') %>
-        <li>Верхних = <%= @train.upper_seats_count('Купе') %></ul>
-      <p>Плацкартных = <%= @train.carriages_count('Плацкарт') %></p> 
-      <ul><strong>Количество мест:</strong>
-        <li>Нижних = <%= @train.lower_seats_count('Плацкарт') %></li>
-        <li>Верхних = <%= @train.upper_seats_count('Плацкарт') %></li></ul>
+    <p>Сидячих = <%= @train.carriages.sedentary.count %></p>
+    <ul><strong>Количество мест:</strong>
+      <li>Сидячих = <%= @train.count_seats('SedentaryCarriage', 'sitting_seats') %></li></ul>
+
+    <p>Плацкартных = <%= @train.carriages.economy.count %></p>
+    <ul><strong>Количество мест:</strong>
+      <li>Нижних = <%= @train.count_seats('EconomyCarriage', 'lower_seats') %>
+      <li>Верхних = <%= @train.count_seats('EconomyCarriage', 'upper_seats') %>
+      <li>Нижних боковых = <%= @train.count_seats('EconomyCarriage', 'side_lower_seats') %>
+      <li>Верхних боковых = <%= @train.count_seats('EconomyCarriage', 'side_upper_seats') %></li></ul>
+
+    <p>Купейных = <%= @train.carriages.coupe.count %></p>
+    <ul><strong>Количество мест:</strong>
+      <li>Нижних = <%= @train.count_seats('CoupeCarriage', 'lower_seats') %>
+      <li>Верхних = <%= @train.count_seats('CoupeCarriage', 'upper_seats') %></li></ul>
+  
+    <p>Св(Люкс) = <%= @train.carriages.luxuru.count %></p>
+    <ul><strong>Количество мест:</strong>
+      <li>Нижних = <%= @train.count_seats('LuxuruCarriage', 'lower_seats') %></li></ul>
   <% else %>
     Вагонов у поезда нет
   <% end %>
 </p>
+
+<p><strong>Вагоны:</strong></p>
+<ul>
+  <%= render partial: 'carriage', collection: @train.carriages_sort %>
+</ul>
 
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |

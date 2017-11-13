@@ -11,6 +11,13 @@
     <%= form.collection_select :route_id, Route.all, :id, :name %>
   </div>
 
+  <div class="field">
+    <%= form.label :head_sort, "Нумерация c головы состава"%>
+    <%= form.radio_button :head_sort, true %>
+    <%= form.label :tail_sort, "Нумерация с хвоста состава"%>
+    <%= form.radio_button :head_sort, false %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
