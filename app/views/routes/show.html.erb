@@ -22,7 +22,7 @@
   <strong>Станции на маршруте:</strong>
   <% if @route.railway_stations.any? %>
     <ul>
-      <% @route.railway_stations.each do |station| %>
+      <% @route.railway_stations.ordered.each do |station| %>
         <li><%= station.title %></li>
       <% end %>
     </ul>
