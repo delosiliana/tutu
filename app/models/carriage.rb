@@ -6,6 +6,13 @@ class Carriage < ApplicationRecord
 
   before_validation :set_number
 
+  scope :ordered, -> { order(:number) }
+
+  scope :sedentary, -> { where(type: 'SedentaryCarriage') }
+  scope :economy, -> { where(type: 'EconomyCarriage') }
+  scope :coupe, -> { where(type: 'CoupeCarriage') }
+  scope :luxuru, -> { where(type: 'LuxuruCarriage') }
+
   private
 
   def set_number

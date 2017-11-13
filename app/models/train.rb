@@ -6,15 +6,15 @@ class Train < ApplicationRecord
 
   validates :number, presence: true
 
-  def carriages_count(carriage_type)
-    carriages.where(carriage_type: carriage_type).count
+  def carriages_count(type)
+    carriages.where(type: type).count
   end
 
-  def upper_seats_count(carriage_type)
-    carriages.where(carriage_type: carriage_type).sum('upper_seats')
+  def upper_seats_count(type)
+    carriages.where(type: type).sum('upper_seats')
   end
 
-  def lower_seats_count(carriage_type)
-    carriages.where(carriage_type: carriage_type).sum('lower_seats')
+  def lower_seats_count(type)
+    carriages.where(type: type).sum('lower_seats')
   end
 end
