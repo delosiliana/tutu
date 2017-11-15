@@ -33,9 +33,9 @@
       <li>Нижних = <%= @train.count_seats('CoupeCarriage', 'lower_seats') %>
       <li>Верхних = <%= @train.count_seats('CoupeCarriage', 'upper_seats') %></li></ul>
   
-    <p>Св(Люкс) = <%= @train.carriages.luxuru.count %></p>
+    <p>Св(Люкс) = <%= @train.carriages.luxury.count %></p>
     <ul><strong>Количество мест:</strong>
-      <li>Нижних = <%= @train.count_seats('LuxuruCarriage', 'lower_seats') %></li></ul>
+      <li>Нижних = <%= @train.count_seats('LuxuryCarriage', 'lower_seats') %></li></ul>
   <% else %>
     Вагонов у поезда нет
   <% end %>
@@ -43,7 +43,7 @@
 
 <p><strong>Вагоны:</strong></p>
 <ul>
-  <%= render partial: 'carriage', collection: @train.carriages_sort %>
+  <%= render partial: 'carriage', collection: @train.sorted_carriages %>
 </ul>
 
 

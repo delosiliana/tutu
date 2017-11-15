@@ -1,28 +1,20 @@
 class Carriage < ApplicationRecord
   belongs_to :train
 
-  validates :number, presence: true
-  validates :number, uniqueness: { scope: :train_id }
+  validates :number, presence: true, uniqueness: { scope: :train_id }
 
-  before_validation :set_number
+  before_validation :set_number, on: :create
 
   scope :ordered, -> { order(:number) }
 
   scope :sedentary, -> { where(type: 'SedentaryCarriage') }
   scope :economy, -> { where(type: 'EconomyCarriage') }
   scope :coupe, -> { where(type: 'CoupeCarriage') }
-  scope :luxuru, -> { where(type: 'LuxuruCarriage') }
-
-  scope :sort_up, -> { order(number: :asc) }
-  scope :sort_down, -> { order(number: :desc) }
+  scope :luxury, -> { where(type: 'LuxuryCarriage') }
 
   private
 
   def set_number
-    self.number = if train.carriages.count.zero?
-      1
-    else
-      train.carriages.last.number + 1
-    end
+    self.number = train.carriages.maximum(:number).to_i + 1
   end
 end

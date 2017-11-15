@@ -6,11 +6,11 @@ class Train < ApplicationRecord
 
   validates :number, presence: true
 
-  def count_seats(type, seats_type)
-    carriages.where(type: type).sum(seats_type)
+  def count_seats(carriages_type, seats_type)
+    carriages.where(type: carriages_type).sum(seats_type)
   end
 
-  def carriages_sort
-    head_sort ? carriages.sort_up : carriages.sort_down
+  def sorted_carriages
+    head_sort ? carriages.order(number: :asc) : carriages.order(number: :desc)
   end
 end

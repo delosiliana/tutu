@@ -1,3 +1,3 @@
-class LuxuruCarriage < Carriage
+class LuxuryCarriage < Carriage
   validates :lower_seats, presence: true
 end
