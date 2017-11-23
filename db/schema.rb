@@ -16,8 +16,6 @@ ActiveRecord::Schema.define(version: 20171113125549) do
     t.integer "number"
     t.integer "upper_seats"
     t.integer "lower_seats"
-    t.integer "side_upper_seats"
-    t.integer "side_lower_seats"
     t.integer "train_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,7 +33,7 @@ ActiveRecord::Schema.define(version: 20171113125549) do
   create_table "railway_stations_routes", force: :cascade do |t|
     t.integer "railway_station_id"
     t.integer "route_id"
-    t.integer "station_position", default: 0
+    t.integer "position"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -64,7 +62,7 @@ ActiveRecord::Schema.define(version: 20171113125549) do
     t.datetime "updated_at", null: false
     t.integer "current_station_id"
     t.integer "route_id"
-    t.boolean "head_sort"
+    t.boolean "head_sort", default: true, null: false
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
     t.index ["route_id"], name: "index_trains_on_route_id"
   end
