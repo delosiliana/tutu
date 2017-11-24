@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20171113125549) do
     t.integer "number"
     t.integer "upper_seats"
     t.integer "lower_seats"
+    t.integer "side_upper_seats"
+    t.integer "side_lower_seats"
     t.integer "train_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
