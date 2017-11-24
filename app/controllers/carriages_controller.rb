@@ -1,6 +1,6 @@
 class CarriagesController < ApplicationController
   before_action :set_carriage, only: [:show, :edit, :update, :destroy]
-  before_action :set_train
+  before_action :set_train, only: [:new, :create]
 
   def index
     @carriages = Carriage.all
@@ -27,7 +27,7 @@ class CarriagesController < ApplicationController
 
   def update
     if @carriage.update(carriage_params)
-      redirect_to @train, notice: 'Вагон обновлен'
+      redirect_to @carriage.train, notice: 'Вагон обновлен'
     else
       render :edit
     end
