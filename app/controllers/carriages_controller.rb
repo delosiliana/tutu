@@ -9,7 +9,7 @@ class CarriagesController < ApplicationController
   def show
   end
 
-  def new    
+  def new
     @carriage = Carriage.new
   end
 
@@ -42,13 +42,13 @@ class CarriagesController < ApplicationController
 
   def set_train
     @train = Train.find(params[:train_id])
-  end  
+  end
 
   def set_carriage
     @carriage = Carriage.find(params[:id])
   end
 
   def carriage_params
-    params.require(:carriage).permit(:number, :train_id, :upper_seats, :lower_seats, :side_upper_seats, :side_lower_seats,:sitting_seats, :type)
+    params.require(:carriage).permit(:number, :upper_seats, :lower_seats, :side_upper_seats, :side_lower_seats, :sitting_seats, :type)
   end
 end

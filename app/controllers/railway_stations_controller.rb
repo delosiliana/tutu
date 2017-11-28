@@ -39,7 +39,7 @@ class RailwayStationsController < ApplicationController
     end
   end
 
-  def update_position    
+  def update_position
     @railway_station.update_position(@route, params[:position])
     redirect_to @route
   end

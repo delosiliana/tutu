@@ -4,20 +4,20 @@
 
   <div class="field">
     <%= label_tag :start_station, "Начальная станция" %>
-		<%= select_tag :start_station, options_from_collection_for_select(@stations, :id, :title) %>
-  </div> 
+    <%= select_tag :start_station, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
+  </div>
 
-	<div class="field">
+  <div class="field">
     <%= label_tag :finish_station, "Конечная станция" %>
-		<%= select_tag :finish_station, options_from_collection_for_select(@stations, :id, :title) %>
-  </div>   
+    <%= select_tag :finish_station, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
+  </div>
 
   <div class="actions">
     <%= submit_tag "Найти" %>
   </div>
 <% end %>
 
-<% if @error !="" %>
+<% if @error.present? %>
   <p>
     <font color="red"><b><%= @error %></b></font>
   </p>
@@ -37,7 +37,7 @@
     </thead>
     <tbody>
       <% @trains.each do |train| %>
-        <tr>          
+        <tr>
           <td><%= "Из #{@start_station.title} - #{@start_station.time(train.route, :departure_time)} "%></td>
           <td><%= "В #{@finish_station.title} - #{@finish_station.time(train.route, :arrival_time)} "%></td>
           <td><%= "Поезд №#{train.number} #{train.route.name}" %></td>
@@ -47,6 +47,6 @@
       <% end %>
     </tbody>
   </table>
-  <% else %>
-    <font color="red">Поезд по данному направлению не ходит</font>
+      <% else %>
+        <font color="red">Поезд по данному направлению не ходит</font>
 <% end %>
