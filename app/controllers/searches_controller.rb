@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
     if params[:start_station] == params[:finish_station]
       @error = "Станции не могут совпадать."
     else
-      @trains = Train.search_train(params[:start_station], params[:finish_station])
+      @trains = Train.search_by_stations(params[:start_station], params[:finish_station])
       @start_station = RailwayStation.find(params[:start_station])
       @finish_station = RailwayStation.find(params[:finish_station])
     end
