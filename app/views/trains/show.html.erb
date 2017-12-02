@@ -41,10 +41,16 @@
   <% end %>
 </p>
 
-<p><strong>Вагоны:</strong></p>
-<ul>
+<p>
+  <strong>Вагоны:</strong></p>
+  <ul>
   <%= render partial: 'carriage', collection: @train.sorted_carriages %>
-</ul>
+  </ul>
+</p>
+
+<p>
+  <%= link_to "Добавить вагон", new_train_carriage_path(@train) %>
+</p>
 
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |

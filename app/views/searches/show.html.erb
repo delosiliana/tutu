@@ -1,0 +1,52 @@
+<h1>Поиск билетов</h1>
+
+<%= form_tag search_path do%>
+
+  <div class="field">
+    <%= label_tag :start_station, "Начальная станция" %>
+    <%= select_tag :start_station, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :finish_station, "Конечная станция" %>
+    <%= select_tag :finish_station, options_from_collection_for_select(RailwayStation.all, :id, :title) %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Найти" %>
+  </div>
+<% end %>
+
+<% if @error.present? %>
+  <p>
+    <font color="red"><b><%= @error %></b></font>
+  </p>
+<% end %>
+
+<% if @trains.present? %>
+<p>
+  <font color="green"><b>Результаты поиска</p></b></font>
+  <table>
+    <thead>
+      <tr>
+        <td><b>Отправление</b></td>
+        <td><b>Прибытие</b></td>
+        <td><b>Поезд</b></td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @trains.each do |train| %>
+        <tr>
+          <td><%= "Из #{@start_station.title} - #{@start_station.time(train.route, :departure_time)} "%></td>
+          <td><%= "В #{@finish_station.title} - #{@finish_station.time(train.route, :arrival_time)} "%></td>
+          <td><%= "Поезд №#{train.number} #{train.route.name}" %></td>
+          <td><%= link_to 'Купить билет', new_ticket_path(train_id: train.id, start_station_id: @start_station, finish_station_id: @finish_station) %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+      <% else %>
+        <font color="red">Поезд по данному направлению не ходит</font>
+<% end %>
