@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   resources :trains do
     resources :carriages, shallow: true
   end
@@ -13,5 +15,8 @@ Rails.application.routes.draw do
   resources :tickets
 
   resource :search, only: [:show]
+
+  get 'welcome/index'
+  root to: 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
