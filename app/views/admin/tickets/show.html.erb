@@ -11,6 +11,4 @@
 <p> Серия паспорта: <%= @ticket.passport_series%> </p>
 <p> Номер паспорта: <%= @ticket.passport_number%> </p>
 
-<p> Email: <%= @ticket.user.email %></p>
-
-<p><b><%= link_to 'Назад', tickets_path %></b></p>
+<%= link_to 'Назад', search_path %>

@@ -1,0 +1,56 @@
+<h1>Создание билета для пользователя</h1>
+
+<%= form_for [:admin, @ticket] do |form| %>
+  <%= render 'common/errors', resource: @ticket %>
+
+  <div class="field">
+    <%= form.label :user_id, "Пользователь"%>
+    <%= form.select :user_id, options_from_collection_for_select(User.all, :id, :email)%>
+  </div>
+
+  <div class="field">
+    <%= form.label :train_id, "Поезд"%>
+    <%= form.select :train_id, options_from_collection_for_select(Train.all, :id, :number)%>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_station_id, "От станции"%>
+    <%= form.select :start_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title)%>
+  </div>
+
+  <div class="field">
+    <%= form.label :finish_station_id, "До станции"%>
+    <%= form.select :finish_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title)%>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :passenger_name, 'Имя пассажира' %>
+    <%= form.text_field :passenger_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :passenger_lastname, 'Фамилия пассажира' %>
+    <%= form.text_field :passenger_lastname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :passenger_patronymic, 'Отчество пассажира' %>
+    <%= form.text_field :passenger_patronymic %>
+  </div>
+
+  <div class="field">
+    <%= form.label :passport_series, 'Серия паспорта' %>
+    <%= form.text_field :passport_series %>
+  </div>
+
+  <div class="field">
+    <%= form.label :passport_number, 'Номер паспорта' %>
+    <%= form.text_field :passport_number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Создать" %>
+  </div>
+
+<% end %>
