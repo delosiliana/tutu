@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
 
-  def create
+  def show
     @stations = RailwayStation.all
     if params[:start_station] == params[:finish_station]
       @error = "Станции не могут совпадать."
@@ -9,7 +9,6 @@ class SearchesController < ApplicationController
       @start_station = RailwayStation.find(params[:start_station])
       @finish_station = RailwayStation.find(params[:finish_station])
     end
-    render :show
   end
 
   private

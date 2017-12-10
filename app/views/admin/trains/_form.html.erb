@@ -1,0 +1,24 @@
+<%= form_for [:admin, @train] do |form|%>
+  <%= render 'common/errors', resource: @train %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :route, 'Выберите маршрут'%>
+    <%= form.collection_select :route_id, Route.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :head_sort, "Нумерация c головы состава"%>
+    <%= form.radio_button :head_sort, true %>
+    <%= form.label :tail_sort, "Нумерация с хвоста состава"%>
+    <%= form.radio_button :head_sort, false %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
