@@ -1,56 +1,58 @@
-<h1>Создание билета для пользователя</h1>
+<h1><%= t('.title') %></h1>
 
 <%= form_for [:admin, @ticket] do |form| %>
   <%= render 'common/errors', resource: @ticket %>
 
   <div class="field">
-    <%= form.label :user_id, "Пользователь"%>
+    <%= form.label :user_id %>
     <%= form.select :user_id, options_from_collection_for_select(User.all, :id, :email)%>
   </div>
 
   <div class="field">
-    <%= form.label :train_id, "Поезд"%>
+    <%= form.label :train_id %>
     <%= form.select :train_id, options_from_collection_for_select(Train.all, :id, :number)%>
   </div>
 
   <div class="field">
-    <%= form.label :start_station_id, "От станции"%>
+    <%= form.label :start_station_id %>
     <%= form.select :start_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title)%>
   </div>
 
   <div class="field">
-    <%= form.label :finish_station_id, "До станции"%>
+    <%= form.label :finish_station_id %>
     <%= form.select :finish_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title)%>
   </div>
 
 
   <div class="field">
-    <%= form.label :passenger_name, 'Имя пассажира' %>
+    <%= form.label :passenger_name %>
     <%= form.text_field :passenger_name %>
   </div>
 
   <div class="field">
-    <%= form.label :passenger_lastname, 'Фамилия пассажира' %>
+    <%= form.label :passenger_lastname %>
     <%= form.text_field :passenger_lastname %>
   </div>
 
   <div class="field">
-    <%= form.label :passenger_patronymic, 'Отчество пассажира' %>
+    <%= form.label :passenger_patronymic %>
     <%= form.text_field :passenger_patronymic %>
   </div>
 
   <div class="field">
-    <%= form.label :passport_series, 'Серия паспорта' %>
+    <%= form.label :passport_series %>
     <%= form.text_field :passport_series %>
   </div>
 
   <div class="field">
-    <%= form.label :passport_number, 'Номер паспорта' %>
+    <%= form.label :passport_number %>
     <%= form.text_field :passport_number %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Создать" %>
+    <%= form.submit t('common.create') %>
   </div>
 
 <% end %>
+
+<%= link_to t('common.back'), admin_tickets_path %>

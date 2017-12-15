@@ -5,9 +5,9 @@
   <td><%= ticket.passenger_name %></td>
   <td><%= ticket.passenger_lastname %></td>
   <td><%= ticket.passenger_patronymic %></td>
-  
 
-  <td><%= link_to 'Показать', [:admin, ticket] %></td>
-  <td><%= link_to 'Редактировать', edit_admin_ticket_path(ticket) %></td>
-  <td><%= link_to 'Удалить', [:admin, ticket], method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+
+  <td><%= link_to t('common.show'), [:admin, ticket] %></td>
+  <td><%= link_to t('common.edit'), edit_admin_ticket_path(ticket) %></td>
+  <td><%= link_to t('common.delete'), [:admin, ticket], method: :delete, data: { confirm: 'Вы уверены?' } %></td>
 </tr>
