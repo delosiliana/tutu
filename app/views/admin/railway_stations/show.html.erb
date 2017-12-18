@@ -3,5 +3,5 @@
   <%= @railway_station.title %>
 </p>
 
-<%= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station) %> |
-<%= link_to t('common.back'), admin_railway_stations_path %>
+<%= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station), class: 'btn btn-primary' %> |
+<%= link_to t('common.back'), admin_railway_stations_path, class: 'btn btn-secondary' %>

@@ -1,52 +1,59 @@
 <%= form_for [:admin, ticket] do |form| %>
   <%= render 'common/errors', resource: @ticket %>
 
-    <div class="field">
-    <%= form.label :user_id %>
-    <%= form.select :user_id, options_from_collection_for_select(User.all, :id, :email)%>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <%= form.label :user_id %>
+      <%= form.select :user_id, options_from_collection_for_select(User.all, :id, :email), {}, { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group col-md-3">
+      <%= form.label :train_id %>
+      <%= form.select :train_id, options_from_collection_for_select(Train.all, :id, :number), {}, { class: 'form-control' } %>
+    </div>
+
+
+    <div class="form-group col-md-3">
+      <%= form.label :start_station_id %>
+      <%= form.select :start_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title), {}, { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group col-md-3">
+      <%= form.label :finish_station_id %>
+      <%= form.select :finish_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title), {}, { class: 'form-control' } %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :train_id %>
-    <%= form.select :train_id, options_from_collection_for_select(Train.all, :id, :number)%>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= form.label :passenger_name %>
+      <%= form.text_field :passenger_name, { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group col-md-4">
+      <%= form.label :passenger_lastname %>
+      <%= form.text_field :passenger_lastname, { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group col-md-4">
+      <%= form.label :passenger_patronymic %>
+      <%= form.text_field :passenger_patronymic, { class: 'form-control' } %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :start_station_id %>
-    <%= form.select :start_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title)%>
-  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :passport_series %>
+      <%= form.text_field :passport_series, { class: 'form-control' } %>
+    </div>
 
-  <div class="field">
-    <%= form.label :finish_station_id %>
-    <%= form.select :finish_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title)%>
-  </div>
-
-  <div class="field">
-    <%= form.label :passenger_name %>
-    <%= form.text_field :passenger_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :passenger_lastname %>
-    <%= form.text_field :passenger_lastname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :passenger_patronymic %>
-    <%= form.text_field :passenger_patronymic %>
-  </div>
-
-  <div class="field">
-    <%= form.label :passport_series %>
-    <%= form.text_field :passport_series %>
-  </div>
-
-  <div class="field">
-    <%= form.label :passport_number %>
-    <%= form.text_field :passport_number %>
+    <div class="form-group col-md-6">
+      <%= form.label :passport_number %>
+      <%= form.text_field :passport_number, { class: 'form-control' } %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit t('common.edit') %>
+    <%= form.submit t('common.edit'), class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -13,4 +13,4 @@
 
 <p> Email: <%= @ticket.user.email %></p>
 
-<p><b><%= link_to 'Назад', tickets_path %></b></p>
+<%= link_to t('common.back'), search_path, class: 'btn btn-secondary' %>

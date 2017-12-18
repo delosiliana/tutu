@@ -33,8 +33,9 @@
             <% if user_signed_in? %>
               <li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
               <% if current_user.admin? %>
-                <li><%= link_to "Админка", admin_panel_path %></li>
+                <li><%= link_to "Админка", admin_panel_index_path %></li>
               <% end %>
+              <p> Привет <%= current_user.name %></p>
             <% else %>
               <li><%= link_to "Войти", new_user_session_path %></li>
             <% end %>
@@ -51,8 +52,8 @@
         </div>
       </div><!--/row-->
 
-      <footer>
-        <p>&copy; Company 2017</p>
+      <footer id="footer" class="footer navbar-fixed-bottom">
+        <%= render 'layouts/footer' %>
       </footer>
 
     </div> <!-- /container -->

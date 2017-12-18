@@ -1,6 +1,6 @@
 <h1><%= t('.name')%></h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th><%= t('.title')%></th>
@@ -15,5 +15,5 @@
 
 <br>
 
-<%= link_to t('common.create'), new_admin_railway_station_path %>
-<%= link_to t('common.back'), admin_panel_index_path %>
+<%= link_to t('common.create'), new_admin_railway_station_path, class: 'btn btn-primary' %>
+<%= link_to t('common.back'), admin_panel_index_path, class: 'btn btn-secondary' %>

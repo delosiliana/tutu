@@ -15,5 +15,5 @@
 
 <%= render @carriage.type.underscore %>
 
-<%= link_to 'Редактировать', edit_admin_carriage_path(@carriage) %>
-<%= link_to 'Назад', [:admin, @carriage.train] %>
+<%= link_to 'Редактировать', edit_admin_carriage_path(@carriage), class: 'btn btn-primary' %>
+<%= link_to 'Назад', [:admin, @carriage.train], class: 'btn btn-secondary' %>
