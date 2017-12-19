@@ -19,7 +19,7 @@ ru:
       show:
         title: 'Просмотр маршрута'
       index:
-        title: 'Маршруты'
+        title: 'Список маршрутов'
     railway_stations:
       new:
         title: 'Новая станция'
