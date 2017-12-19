@@ -13,7 +13,7 @@ ru:
       new:
         title: 'Новый маршрут'
       form:
-        submit: '{action} маршрут'
+        submit: '%{action} маршрут'
       edit:
         title: 'Редактирование маршрута'
       show:
