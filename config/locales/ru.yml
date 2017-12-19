@@ -9,6 +9,17 @@ ru:
     errors: 'При заполнении формы возникли ошибки'
     add: 'Добавить'
   admin:
+    route:
+      new:
+        title: 'Новый маршрут'
+      form:
+        submit: '{action} маршрут'
+      edit:
+        title: 'Редактирование маршрута'
+      show:
+        title: 'Просмотр маршрута'
+      index:
+        title: 'Маршруты'
     railway_stations:
       new:
         title: 'Новая станция'
