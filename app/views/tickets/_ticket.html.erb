@@ -7,6 +7,7 @@
   <td><%= ticket.passenger_patronymic %></td>
   <td><%= ticket.user.email %></td>
 
-  <td><%= link_to 'Показать', ticket %></td>
-  <td><%= link_to 'Удалить', ticket, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+  <td><%= link_to 'Показать', ticket, class: 'btn btn-info' %></td>
+  <td><%= link_to 'Удалить', ticket, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger' %></td>
 </tr>
+

@@ -1,24 +1,28 @@
 <%= form_for [:admin, @train] do |form|%>
   <%= render 'common/errors', resource: @train %>
 
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <%= form.label :number %>
+      <%= form.text_field :number, { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group col-md-9">
+      <%= form.label :route %>
+      <%= form.collection_select :route_id, Route.all, :id, :name, {},  { class: 'form-control' } %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :route, 'Выберите маршрут'%>
-    <%= form.collection_select :route_id, Route.all, :id, :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :head_sort, "Нумерация c головы состава"%>
-    <%= form.radio_button :head_sort, true %>
-    <%= form.label :tail_sort, "Нумерация с хвоста состава"%>
-    <%= form.radio_button :head_sort, false %>
+  <div class="form-row">
+    <div class="field">
+      <%= form.label :head_sort %>
+      <%= form.radio_button :head_sort, true %>
+      <%= form.label :tail_sort %>
+      <%= form.radio_button :head_sort, false %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit t('.submit', action: @train.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-primary' %>
   </div>
 <% end %>

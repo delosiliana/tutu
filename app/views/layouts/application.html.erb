@@ -1,27 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Tutu</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Tutu" %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= stylesheet_link_tag "application", :media => "all" %>
 
+
+
+    <%= javascript_include_tag "application" %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
   <body>
 
-    <p id="notice" class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Tutu</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to "Админка", admin_panel_index_path %></li>
+              <% end %>
+              <p> Привет <%= current_user.name %></p>
+            <% else %>
+              <li><%= link_to "Войти", new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <% if user_signed_in? %>
-      <li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
-      <p>Привет <%= current_user.name %></p>
-    <% else %>
-      <li><%= link_to "Войти", new_user_session_path  %></li>
-    <% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div><!--/row-->
 
-    <%= yield %>
+      <footer id="footer" class="footer navbar-fixed-bottom">
+        <%= render 'layouts/footer' %>
+      </footer>
 
-    <%= render 'layouts/footer' %>
+    </div> <!-- /container -->
+
   </body>
 </html>

@@ -1,14 +1,14 @@
-<h1> Билет № <%= @ticket.id %></h1>
+<h1> <%= t('.title') %> <%= @ticket.id %></h1>
 
-<p> Поезд №: <%= @ticket.train.number %>. С маршрутом <%= @ticket.train.route.name %></p>
-<p> Отправляется из города: <%= "#{@ticket.start_station.title} - в #{@ticket.start_station.time(@ticket.train.route, :departure_time)}" %></p>
-<p> Прибывает в город: <%= "#{@ticket.finish_station.title} - в  #{@ticket.finish_station.time(@ticket.train.route, :arrival_time)}" %></p>
+<p> <%= t('.train') %> <%= @ticket.train.number %>. <%= t('.route') %> <%= @ticket.train.route.name %></p>
+<p> <%= t('.departure') %> <%= "#{@ticket.start_station.title} - в #{@ticket.start_station.time(@ticket.train.route, :departure_time)}" %></p>
+<p> <%= t('.arrival') %> <%= "#{@ticket.finish_station.title} - в  #{@ticket.finish_station.time(@ticket.train.route, :arrival_time)}" %></p>
 
-<p> Имя: <%= @ticket.passenger_name %> </p>
-<p> Фамилия: <%= @ticket.passenger_lastname %> </p>
-<p> Отчество: <%= @ticket.passenger_patronymic %> </p>
+<p> <%= t('.passenger_name') %> <%= @ticket.passenger_name %> </p>
+<p> <%= t('.passenger_lastname') %> <%= @ticket.passenger_lastname %> </p>
+<p> <%= t('.passenger_patronymic') %><%= @ticket.passenger_patronymic %> </p>
 
-<p> Серия паспорта: <%= @ticket.passport_series%> </p>
-<p> Номер паспорта: <%= @ticket.passport_number%> </p>
+<p> <%= t('.passport_series') %> <%= @ticket.passport_series%> </p>
+<p> <%= t('.passport_number') %> <%= @ticket.passport_number%> </p>
 
-<%= link_to 'Назад', search_path %>
+<%= link_to t('common.back'), admin_tickets_path, class: 'btn btn-secondary' %>

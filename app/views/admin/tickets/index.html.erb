@@ -1,14 +1,14 @@
-<h1>Билеты:</h1>
+<h1><%= t('.title') %></h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Поезд</th>
-      <th>Отправление</th>
-      <th>Прибытие</th>
-      <th>Имя</th>
-      <th>Фамилия</th>
-      <th>Отчество</th>
+      <th><%= t('.train') %></th>
+      <th><%= t('.departure') %></th>
+      <th><%= t('.arrival' )%></th>
+      <th><%= t('.passenger_name') %></th>
+      <th><%= t('.passenger_lastname') %></th>
+      <th><%= t('.passenger_patronymic') %></th>
       <th>email</th>
       <th></th>
     </tr>
@@ -19,4 +19,6 @@
   </tbody>
 </table>
 
-<%= link_to 'Создать новый билет', new_admin_ticket_path %>
+<%= link_to t('common.create'), new_admin_ticket_path, class: 'btn btn-primary' %>
+<%= link_to t('common.back'), admin_panel_index_path, class: 'btn btn-secondary' %>
+

@@ -1,6 +1,6 @@
 <h1>Билеты:</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Поезд</th>
@@ -17,3 +17,5 @@
     <%= render @tickets %>
   </tbody>
 </table>
+
+<%= link_to t('common.back'), search_path, class: 'btn btn-secondary' %>

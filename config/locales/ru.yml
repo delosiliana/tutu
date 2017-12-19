@@ -1,0 +1,84 @@
+ru:
+  common:
+    create: 'Создать'
+    edit: 'Редактировать'
+    back: 'Назад'
+    show: 'Показать'
+    delete: 'Удалить'
+    sure: 'Вы уверены?'
+    errors: 'При заполнении формы возникли ошибки'
+    add: 'Добавить'
+  admin:
+    railway_stations:
+      new:
+        title: 'Новая станция'
+      form:
+        submit: '%{action} станцию'
+      edit:
+        title: 'Редактирование станции'
+      show:
+        title: 'Название станции:'
+      index:
+        name: 'Железнодорожные станции'
+        title: 'Название'
+    trains:
+      new:
+        title: 'Новый поезд'
+      form:
+        submit: '%{action} поезд'
+        number: 'Номер поезда'
+      edit:
+        title: 'Редактирование поезда'
+      index:
+        title: 'Список поездов'
+        number: 'Номер'
+      show:
+        number: 'Номер:'
+        route: 'Маршрут:'
+        sum_carriages: 'Количество вагонов'
+        sum_carriages_sedentary: 'Сидячих вагонов ='
+        sum_carriages_economy: 'Плацкартных вагонов ='
+        sum_carriages_coupe: 'Купейных вагонов ='
+        sum_carriages_luxury: 'Св(люкс) вагонов ='
+        number_of_seats: 'Количество мест:'
+        sitting_seats: 'Сидячих мест ='
+        upper_seats: 'Верхних мест='
+        lower_seats: 'Нижних мест='
+        side_upper_seats: 'Верхних боковых мест='
+        side_lower_seats: 'Нижних боковых мест='
+        carriages: 'Вагоны:'
+    tickets:
+      form:
+        passenger
+      edit:
+        title: 'Редактирование билета'
+      index:
+        title: 'Билет'
+        train: 'Поезд'
+        departure: 'Отправление'
+        arrival: 'Прибытие'
+        passenger_name: 'Имя пассажира'
+        passenger_lastname: 'Фамилия пассажира'
+        passenger_patronymic: 'Отчество пассажира'
+      new:
+        title: 'Создание билета'
+        user_id:
+        train_id:
+        start_station_id:
+        finish_station_id:
+        passport_number: 'Номер паспорта'
+        passport_series: 'Серия паспорта'
+        passenger_name: 'Имя пассажира'
+        passenger_lastname: 'Фамилия пассажира'
+        passenger_patronymic: 'Отчество пассажира'
+      show:
+        title: 'Билет № '
+        train: 'Поезд: '
+        route: 'C маршрутом: '
+        departure: 'Отправляется из города: '
+        arrival: 'Прибывает в город: '
+        passenger_name: 'Имя пассажира: '
+        passenger_lastname: 'Фамилия пассажира: '
+        passenger_patronymic: 'Отчество пассажира: '
+        passport_number: 'Номер паспорта: '
+        passport_series: 'Серия паспорта: '
