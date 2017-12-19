@@ -9,7 +9,7 @@ ru:
     errors: 'При заполнении формы возникли ошибки'
     add: 'Добавить'
   admin:
-    route:
+    routes:
       new:
         title: 'Новый маршрут'
       form:
@@ -17,9 +17,10 @@ ru:
       edit:
         title: 'Редактирование маршрута'
       show:
-        title: 'Просмотр маршрута'
+        title: 'Название маршрута:'
       index:
-        title: 'Список маршрутов'
+        name: 'маршрута'
+        title: 'Название'
     railway_stations:
       new:
         title: 'Новая станция'
