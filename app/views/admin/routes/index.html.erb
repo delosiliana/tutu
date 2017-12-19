@@ -1,4 +1,4 @@
-<h1>Список маршрутов</h1>
+<h1><%= t('.title') %></h1>
 
 <table class="table table-hover">
   <thead>
@@ -15,5 +15,5 @@
 
 <br>
 
-<%= link_to 'Добавить новый маршрут', new_admin_route_path, class: 'btn btn-primary' %>
+<%= link_to t('common.new'), new_admin_route_path, class: 'btn btn-primary' %>
 <%= link_to t('common.back'), admin_panel_index_path, class: 'btn btn-secondary' %>
