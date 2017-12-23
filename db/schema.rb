@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206041537) do
+ActiveRecord::Schema.define(version: 20171219095930) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "carriages", force: :cascade do |t|
     t.integer "number"
@@ -18,11 +21,12 @@ ActiveRecord::Schema.define(version: 20171206041537) do
     t.integer "lower_seats"
     t.integer "side_upper_seats"
     t.integer "side_lower_seats"
-    t.integer "train_id"
+    t.bigint "train_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sitting_seats"
     t.string "type"
+    t.index ["id", "type"], name: "index_carriages_on_id_and_type"
     t.index ["train_id"], name: "index_carriages_on_train_id"
   end
 
@@ -50,10 +54,10 @@ ActiveRecord::Schema.define(version: 20171206041537) do
     t.string "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "start_station_id"
-    t.integer "finish_station_id"
-    t.integer "train_id"
+    t.bigint "user_id"
+    t.bigint "start_station_id"
+    t.bigint "finish_station_id"
+    t.bigint "train_id"
     t.string "passenger_name"
     t.string "passenger_lastname"
     t.string "passenger_patronymic"
@@ -69,8 +73,8 @@ ActiveRecord::Schema.define(version: 20171206041537) do
     t.string "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "current_station_id"
-    t.integer "route_id"
+    t.bigint "current_station_id"
+    t.bigint "route_id"
     t.boolean "head_sort", default: true, null: false
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
     t.index ["route_id"], name: "index_trains_on_route_id"
