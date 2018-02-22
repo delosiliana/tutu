@@ -181,7 +181,7 @@ GEM
     sendgrid-ruby (4.3.3)
       ruby_http_client (~> 3.0)
       sinatra (>= 1.4.7, < 3)
-    sinatra (2.0.0)
+    sinatra (2.0.1)
       mustermann (~> 1.0)
       rack (~> 2.0)
       rack-protection (= 2.0.0)
